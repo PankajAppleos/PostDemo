@@ -87,7 +87,18 @@ class SecTableViewController: UITableViewController {
             let allData = rootDict.object(forKey: "Status") as! String
            // let data = rootDict.object(forKey: "Data")as! String?
             let stcode = rootDict.object(forKey: "StatusCode")as! Int
-let stcod = rootDict.object(forKey: "StatusCode")as! Int
+
+            
+            for dataIn in rootDict{
+                let infoobj = info()
+                let status = rootDict.object(forKey: "Status")as! String
+                let StatusCode = rootDict.object(forKey: "StatusCode")as! Int
+                infoobj.data = status
+                let convalue = String(StatusCode)
+                infoobj.name = convalue
+                 self.infArr.append(infoobj)
+            }
+            
 //            for dataIn in allData
 //            {
 //                let Info = info()
@@ -115,6 +126,7 @@ let stcod = rootDict.object(forKey: "StatusCode")as! Int
 //               // SchoolObj.simage = UIImage(data: imgData)
 //
 //            }
+            
             self.tableView.reloadData()
             print(rootDict)
 
